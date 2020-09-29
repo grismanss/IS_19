@@ -48,8 +48,14 @@
             this.vbcvnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cvncvncvnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vncvncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -178,14 +184,14 @@
             // xvbcvbToolStripMenuItem
             // 
             this.xvbcvbToolStripMenuItem.Name = "xvbcvbToolStripMenuItem";
-            this.xvbcvbToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xvbcvbToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.xvbcvbToolStripMenuItem.Text = "Создать";
             this.xvbcvbToolStripMenuItem.Click += new System.EventHandler(this.xvbcvbToolStripMenuItem_Click);
             // 
             // xcbxcbxvbToolStripMenuItem
             // 
             this.xcbxcbxvbToolStripMenuItem.Name = "xcbxcbxvbToolStripMenuItem";
-            this.xcbxcbxvbToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xcbxcbxvbToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.xcbxcbxvbToolStripMenuItem.Text = "Открыть";
             this.xcbxcbxvbToolStripMenuItem.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -203,26 +209,71 @@
             this.cvncvncvnToolStripMenuItem,
             this.vncvncToolStripMenuItem});
             this.vbcvnToolStripMenuItem.Name = "vbcvnToolStripMenuItem";
-            this.vbcvnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vbcvnToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.vbcvnToolStripMenuItem.Text = "vbcvn";
             // 
             // cvncvncvnToolStripMenuItem
             // 
             this.cvncvncvnToolStripMenuItem.Name = "cvncvncvnToolStripMenuItem";
-            this.cvncvncvnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cvncvncvnToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.cvncvncvnToolStripMenuItem.Text = "cvncvncvn";
             // 
             // vncvncToolStripMenuItem
             // 
             this.vncvncToolStripMenuItem.Name = "vncvncToolStripMenuItem";
-            this.vncvncToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vncvncToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.vncvncToolStripMenuItem.Text = "vncvnc";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 843);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1600, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Location = new System.Drawing.Point(0, 821);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(1600, 22);
+            this.statusStrip2.TabIndex = 9;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(32, 697);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(127, 31);
+            this.textBox2.TabIndex = 10;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(32, 734);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(127, 46);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button2);
@@ -233,13 +284,15 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,6 +319,11 @@
         private System.Windows.Forms.ToolStripMenuItem vbcvnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cvncvncvnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vncvncToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
