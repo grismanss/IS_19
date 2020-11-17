@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApp27
 {
@@ -68,6 +69,10 @@ namespace WindowsFormsApp27
                     as MyCircle;
                 m.Stiranie();
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                toolStripStatusLabel1.Text = "";
+                toolStripStatusLabel2.Text = "";
+                toolStripStatusLabel3.Text = "";
+
                 if (listBox1.Items.Count == 0)
                 {
                     button2.Enabled = false;
@@ -129,6 +134,77 @@ namespace WindowsFormsApp27
                 toolStripStatusLabel1.Text = "Масштаб:"+m.l;
                 toolStripStatusLabel2.Text = "Скорость:" + m.s;
                 toolStripStatusLabel3.Text = "Цвет:" + m.myColor;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            saveFileDialog1.FileName = "";
+            if (saveFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    sw.WriteLine(listBox1.Items.Count);
+                    for (int i=0; i<listBox1.Items.Count; i++)
+                    {
+                        MyCircle m = listBox1.Items[i] as MyCircle;
+                        sw.WriteLine(m.x);
+                        sw.WriteLine(m.y);
+                        sw.WriteLine(m.l);
+                        sw.WriteLine(m.s);                        
+                        sw.WriteLine(m.myColor.ToArgb());
+                    }
+                }
+                
+            }
+            timer1.Start();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            listBox1.Items.Clear();
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
+                {
+                    int k = Convert.ToInt32(sr.ReadLine());
+                    for (int i=0; i<k; i++)
+                    {
+                        int x= Convert.ToInt32(sr.ReadLine());
+                        int y= Convert.ToInt32(sr.ReadLine());
+                        int l= Convert.ToInt32(sr.ReadLine());
+                        int s = Convert.ToInt32(sr.ReadLine());
+                        string cl = sr.ReadLine();
+
+                        /*int k1 = cl.IndexOf("[");
+                        int k2 = cl.IndexOf("]");
+                       // cl = cl.Substring(k2);
+                        cl = cl.Substring(k1+1, k2-k1-1);
+                        Char[] sp = { ',' };
+                        string[] str = cl.Split(sp);
+                        int ma = str[0].IndexOf("=");
+                        int a = Convert.ToInt32(str[0].Substring(ma + 1));
+                        int mr = str[1].IndexOf("=");
+                        int r = Convert.ToInt32(str[1].Substring(mr + 1));
+                        int mg = str[2].IndexOf("=");
+                        int g = Convert.ToInt32(str[2].Substring(mg + 1));
+                        int mb = str[3].IndexOf("=");
+                        int b = Convert.ToInt32(str[3].Substring(mb + 1));
+                        //Color mycl = Color.FromName(cl);
+                        Color mycl = Color.FromArgb(a, r, g, b);*/
+
+                        Color mycl = Color.FromArgb(Convert.ToInt32(cl));
+                        MyCircle my = new MyCircle(x, y, l, s, mycl, pictureBox1);
+                        listBox1.Items.Add(my);
+
+                    }
+
+                }
+                timer1.Enabled = true;
+
             }
         }
     }
