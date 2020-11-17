@@ -23,6 +23,14 @@ namespace WindowsFormsApp27
                 (pictureBox1.Width, pictureBox1.Height);
             pictureBox1.BackColor = Color.White;
             timer1.Start();
+
+            button2.Enabled = false;
+            button3.Enabled = false;
+            редактироватьToolStripMenuItem.Enabled = false;
+            удалитьToolStripMenuItem.Enabled = false;
+            toolStripButton2.Enabled = false;
+            toolStripButton3.Enabled = false;
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -56,7 +64,19 @@ namespace WindowsFormsApp27
         {
             if (listBox1.SelectedIndex != -1)
             {
-                listBox1.Items.Remove(listBox1.SelectedIndex);
+                MyCircle m = listBox1.Items[listBox1.SelectedIndex]
+                    as MyCircle;
+                m.Stiranie();
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                if (listBox1.Items.Count == 0)
+                {
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    редактироватьToolStripMenuItem.Enabled = false;
+                    удалитьToolStripMenuItem.Enabled = false;
+                    toolStripButton2.Enabled = false;
+                    toolStripButton3.Enabled = false;
+                }
             }
         }
 
@@ -96,7 +116,20 @@ namespace WindowsFormsApp27
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex != -1)
+            {
+                button2.Enabled = true;
+                button3.Enabled = true;
+                редактироватьToolStripMenuItem.Enabled = true;
+                удалитьToolStripMenuItem.Enabled = true;
+                toolStripButton2.Enabled = true;
+                toolStripButton3.Enabled = true;
 
+                MyCircle m = listBox1.Items[listBox1.SelectedIndex] as MyCircle;
+                toolStripStatusLabel1.Text = "Масштаб:"+m.l;
+                toolStripStatusLabel2.Text = "Скорость:" + m.s;
+                toolStripStatusLabel3.Text = "Цвет:" + m.myColor;
+            }
         }
     }
 }
