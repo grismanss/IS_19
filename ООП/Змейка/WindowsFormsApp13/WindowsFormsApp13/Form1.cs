@@ -27,23 +27,43 @@ namespace WindowsFormsApp13
 
         private void button1_Click(object sender, EventArgs e)
         {
-            g.Move(1);
+            if (g.Move(1) == false)
+            {
+                MessageBox.Show("Конец игры!");
+            }
+            textBox1.Text = g.count.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            g.Move(2);
+            if (g.Move(2) == false)
+            {
+                MessageBox.Show("Конец игры!");
+            }
+            textBox1.Text = g.count.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            g.Move(3);
+            if (g.Move(3) == false)
+            {
+                MessageBox.Show("Конец игры!");
+            }
+            textBox1.Text = g.count.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            g.Move(4);
-            
+            if (g.Move(4) == false)
+            {
+                MessageBox.Show("Конец игры!");
+            }
+            textBox1.Text = g.count.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

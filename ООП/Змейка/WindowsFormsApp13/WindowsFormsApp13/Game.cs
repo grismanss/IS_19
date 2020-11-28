@@ -15,7 +15,7 @@ namespace WindowsFormsApp13
         Block block = new Block(Color.Aquamarine);
         Food my_food = new Food(Color.Yellow);
 
-        int count = 0;//счет игры
+       public  int count = 0;//счет игры
         int l = 50; //масштаб  обьектов игры
         Color pole = Color.Chartreuse;//цвет поля
         PictureBox myPb;//Область рисования
@@ -50,9 +50,56 @@ namespace WindowsFormsApp13
                 strY++;
             }
             sr.Close();
-            my_food.Add(my_food.RandomFoodPoint(l-1, l-1));
-            my_food.Add(my_food.RandomFoodPoint(l-1, l-1));
+            ProverkaFood();
+            System.Threading.Thread.Sleep(100);
+            ProverkaFood();
+            //   my_food.Add(my_food.RandomFoodPoint(l-1, l-1));
+            //   my_food.Add(my_food.RandomFoodPoint(l-1, l-1));
 
+        }
+
+        public void ProverkaFood()
+        {
+            bool f = false;
+            MyPoint p;
+            do
+            {
+                f = false;
+                p = my_food.RandomFoodPoint(l, l);
+                for (int i = 0; i < my_snake.body.Count; i++)
+                {
+                    if (p.x == my_snake.body[i].x && p.y == my_snake.body[i].y)
+                        f = true;
+                }
+                for (int i = 0; i < block.body.Count; i++)
+                {
+                    if (p.x == block.body[i].x && p.y == block.body[i].y)
+                        f = true;
+                }
+                for (int i = 0; i < my_food.body.Count; i++)
+                {
+                    if (p.x == my_food.body[i].x && p.y == my_food.body[i].y)
+                        f = true;
+                }
+
+
+            } while (f);
+            my_food.Add(p);
+        }
+
+        public void EdaCollision()
+        {
+            for (int i=0; i<my_food.body.Count; i++)
+            {
+                if (my_food.body[i].x == my_snake.body[0].x 
+                    && my_food.body[i].y == my_snake.body[0].y)
+                {
+                    ProverkaFood();
+                    my_food.Delete(i);
+                    my_snake.AddHvost();
+                    count++;
+                }
+            }
         }
 
         public void Show()//перерисовка состояния игры
@@ -117,8 +164,35 @@ namespace WindowsFormsApp13
             {
                 my_snake.Move(-1, 0);
             }
-            Show();
+            EdaCollision();
+            a = Crush();
+            if (a==true)
+                Show();
             return a;
+        }
+
+        public bool Crush()
+        {
+            bool f = true;
+            for (int i=0; i<block.body.Count; i++)
+            {
+                if (block.body[i].x==my_snake.body[0].x &&
+                   block.body[i].y == my_snake.body[0].y)
+                {
+                    f = false;
+                    break;
+                }
+            }
+            for (int i = 1; i < my_snake.body.Count; i++)
+            {
+                if (my_snake.body[i].x == my_snake.body[0].x &&
+                   my_snake.body[i].y == my_snake.body[0].y)
+                {
+                    f = false;
+                    break;
+                }
+            }
+            return f;
         }
     }
 }

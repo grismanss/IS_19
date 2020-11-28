@@ -18,7 +18,15 @@ namespace WindowsFormsApp13
         //добавление в хвост новой точки 
         public void AddHvost()
         {
-
+            int n = body.Count - 1;
+            if ((body[n].x - body[n - 1].x) == 0)
+            {
+                body.Add(new MyPoint(body[n].x, body[n].y + 1));
+            }
+            else
+            {
+                body.Add(new MyPoint(body[n].x+1, body[n].y));
+            }
         }
         //функция движения звмеи
         public void Move(int dx, int dy)
