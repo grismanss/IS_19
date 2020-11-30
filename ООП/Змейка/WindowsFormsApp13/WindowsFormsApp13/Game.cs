@@ -17,7 +17,7 @@ namespace WindowsFormsApp13
 
        public  int count = 0;//счет игры
         int l = 50; //масштаб  обьектов игры
-        Color pole = Color.Chartreuse;//цвет поля
+        Color pole = Color.Purple;//цвет поля
         PictureBox myPb;//Область рисования
 
         public Game(PictureBox n_myPb)
