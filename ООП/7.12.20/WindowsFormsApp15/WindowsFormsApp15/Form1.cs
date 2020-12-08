@@ -13,17 +13,21 @@ namespace WindowsFormsApp15
 {
     public partial class Form1 : Form
     {
+        public static string connect_str = "Data Source=DESKTOP-5432H8R\\SQLEXPRESS;Initial Catalog=People;Integrated Security=True";
+        public SqlConnection connect = new SqlConnection(connect_str);
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        public void load()
         {
+
             dataGridView1.RowCount = 1;
-           
-            string connect_str = "Data Source=DESKTOP-5432H8R\\SQLEXPRESS;Initial Catalog=People;Integrated Security=True";
-            SqlConnection connect = new SqlConnection(connect_str);
+
+
             connect.Open();
 
             string sr = "select t1.id,t1.Last_name,t1.First_name,t1.First_name2,t1.Data," +
@@ -51,12 +55,42 @@ namespace WindowsFormsApp15
                 mas[9] = read.GetValue(9).ToString();
                 mas[10] = read.GetValue(10).ToString();
                 dataGridView1.Rows.Add(mas);
-              
+
             }
-
             connect.Close();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            load();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult rez = MessageBox.Show("Точно удалить запись?", "", MessageBoxButtons.OKCancel);
+            if (rez == DialogResult.OK)
+            {
+                int k = dataGridView1.CurrentCell.RowIndex;
+
+                if (dataGridView1[0, k].Value != null)
+                {
+                    string str_del = "delete from [dbo].[People] where [id]="
+                       + dataGridView1[0, k].Value.ToString();
+                    connect.Open();
+                    SqlCommand com = new SqlCommand(str_del, connect);
+                    com.ExecuteNonQuery();
+                    connect.Close();
+                    load();
+                }
+            }
+          
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            load();
+        }
     }
+
+    
 }
