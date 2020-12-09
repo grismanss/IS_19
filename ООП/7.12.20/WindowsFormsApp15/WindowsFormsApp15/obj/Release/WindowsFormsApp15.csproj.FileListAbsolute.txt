@@ -1,0 +1,10 @@
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\bin\Release\WindowsFormsApp15.exe.config
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\bin\Release\WindowsFormsApp15.exe
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\bin\Release\WindowsFormsApp15.pdb
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.Form1.resources
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.Form2.resources
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.Properties.Resources.resources
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.GenerateResource.cache
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.CoreCompileInputs.cache
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.exe
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.pdb

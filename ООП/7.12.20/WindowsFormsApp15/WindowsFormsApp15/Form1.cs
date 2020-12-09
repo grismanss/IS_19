@@ -90,6 +90,32 @@ namespace WindowsFormsApp15
         {
             load();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {  Form2 f = new Form2();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+
+               
+
+                string s = "insert into [dbo].[People] ([Last_name],[First_name]," +
+                    "[First_name2],[Phone],[Email],[Pol],[Data],[Kategory]," +
+                    "[Nosology],[Adress]) " +
+                    "values('"+f.textBox1.Text+"', '"+f.textBox2.Text
+                    +"', '"+f.textBox3.Text+"', '"+f.maskedTextBox1.Text
+                    +"', '"+f.textBox4.Text+"', "+
+                    f.comboBox1.SelectedValue+", '"+f.dateTimePicker1.Value
+                    +"', "+f.comboBox2.SelectedValue+", "+f.comboBox3.SelectedValue
+                    +", '"+f.textBox5.Text+"')";
+                connect.Open();
+                SqlCommand com = new SqlCommand(s, connect);
+                com.ExecuteNonQuery();
+                connect.Close();
+                load();
+
+            }
+
+        }
     }
 
     
