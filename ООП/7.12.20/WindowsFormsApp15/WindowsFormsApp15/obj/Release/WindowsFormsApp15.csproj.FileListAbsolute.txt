@@ -8,3 +8,4 @@ C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp
 C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.CoreCompileInputs.cache
 C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.exe
 C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.pdb
+C:\Users\Svetlana\Desktop\IS_19\ООП\7.12.20\WindowsFormsApp15\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csprojAssemblyReference.cache

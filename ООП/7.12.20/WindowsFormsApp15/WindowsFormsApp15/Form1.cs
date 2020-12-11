@@ -93,6 +93,12 @@ namespace WindowsFormsApp15
 
         private void button3_Click(object sender, EventArgs e)
         {  Form2 f = new Form2();
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "peopleDataSet2.Nosology". При необходимости она может быть перемещена или удалена.
+            f.nosologyTableAdapter.Fill(f.peopleDataSet2.Nosology);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "peopleDataSet1.Kategory". При необходимости она может быть перемещена или удалена.
+            f.kategoryTableAdapter.Fill(f.peopleDataSet1.Kategory);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "peopleDataSet.Pol". При необходимости она может быть перемещена или удалена.
+            f.polTableAdapter.Fill(f.peopleDataSet.Pol);
             if (f.ShowDialog() == DialogResult.OK)
             {
 
@@ -108,6 +114,7 @@ namespace WindowsFormsApp15
                     +"', "+f.comboBox2.SelectedValue+", "+f.comboBox3.SelectedValue
                     +", '"+f.textBox5.Text+"')";
                 connect.Open();
+   
                 SqlCommand com = new SqlCommand(s, connect);
                 com.ExecuteNonQuery();
                 connect.Close();
@@ -115,6 +122,48 @@ namespace WindowsFormsApp15
 
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            int k = dataGridView1.CurrentCell.RowIndex;
+            if (dataGridView1[1, k].Value != null)
+            {
+                f.textBox1.Text = dataGridView1[1, k].Value.ToString();
+                f.textBox2.Text = dataGridView1[2, k].Value.ToString();
+                f.textBox3.Text = dataGridView1[3, k].Value.ToString();
+                f.maskedTextBox1.Text = dataGridView1[6, k].Value.ToString();
+                f.textBox4.Text = dataGridView1[5, k].Value.ToString();
+                f.dateTimePicker1.Value = Convert.ToDateTime(dataGridView1[4, k].Value);
+                f.textBox5.Text = dataGridView1[7, k].Value.ToString();
+
+                f.nosologyTableAdapter.Fill(f.peopleDataSet2.Nosology);
+                f.kategoryTableAdapter.Fill(f.peopleDataSet1.Kategory);
+                f.polTableAdapter.Fill(f.peopleDataSet.Pol);
+
+                f.comboBox1.Text = dataGridView1[8, k].Value.ToString();
+                f.comboBox2.Text = dataGridView1[10, k].Value.ToString();
+                f.comboBox3.Text = dataGridView1[9, k].Value.ToString();
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    string s = "update [dbo].[People] set [Last_name]='" + f.textBox1.Text
+                        + "', [First_name]='" + f.textBox2.Text
+                        + "', [First_name2]='" + f.textBox3.Text + "'," +
+                        "[Phone]='" + f.maskedTextBox1.Text
+                        + "',[Email]='" + f.textBox4.Text + "',[Pol]=" +
+                        f.comboBox1.SelectedValue + ",[Data]='" + f.dateTimePicker1.Value
+                        + "',[Kategory]=" + f.comboBox2.SelectedValue + ",[Nosology]=" +
+                         f.comboBox3.SelectedValue + ",[Adress]='" + f.textBox5.Text + "' where[id] = "
+                         + dataGridView1[0, k].Value.ToString();
+
+                    connect.Open();
+                    SqlCommand com = new SqlCommand(s, connect);
+                    com.ExecuteNonQuery();
+                    connect.Close();
+                    load();
+                }
+            }
         }
     }
 
